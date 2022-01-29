@@ -1,5 +1,5 @@
 #Basic Workflow
-name : CI
+name : CI_actionsCarlos
 
 # Controls when the workflow will run
 on:
