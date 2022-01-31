@@ -46,13 +46,15 @@ jobs:
         run : npm run build
         working-directory: ${{env.working-directory}}
       
-      - name : Deploy to gh-pages
-        with:
+      - name : Deploy to gh-pages 
         uses : |
-                git config --global user.name ${{ secrets.USER_NAME_2 }}
+                git config --global user.name USER_NAME
                 git config --global user.email ${{ secrets.user_email }}
                 git remote set-url origin https://${{secrets.my_tokenPersonal}}@github.com/${{secrets.repository}}.git
                 npm run deploy
+        with:
+          USER_NAME: ${{secrets.USER_NAME_2}}
+
 
         
 
