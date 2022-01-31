@@ -26,34 +26,34 @@ jobs:
     #Steps Represent a sequence of tasks that will be executed as part of the job
     steps:
       #Checks-out your repository under $GITHUB_WORKSPACE, so your joc can access it 
-    - name: Checkout reposotory 
-      uses: actions/checkout@v2
+      - name: Checkout reposotory 
+        uses: actions/checkout@v2
 
-    - name: Set up Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v2
-      with:
-        node-version: ${{matrix.node-version}}
+      - name: Set up Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{matrix.node-version}}
 
-    - name: Install dependencies
-      run : npm install
-      working-directori: ${{env.working-directory}}
+      - name: Install dependencies
+        run : npm install
+        working-directori: ${{env.working-directory}}
 
-    - name: Run the tests 
-      run: npm test
-      working-directori: ${{env.working-directory}}
+      - name: Run the tests 
+        run: npm test
+        working-directori: ${{env.working-directory}}
 
-    - name : Build Page
-      run : npm run build
-      working-directori: ${{env.working-directory}}
-    
-    - name : Deploy to gh-pages
-      uses : |
-              git config --global user.name ${{secrets.user_name}}
-              git config --global user.email ${{secrets.user_email}}
-              git remote set-url origin https://${{secrets.my_tokenPersonal}}@github.com/${{secrets.repository}}.git
-              npm run deploy
-
+      - name : Build Page
+        run : npm run build
+        working-directori: ${{env.working-directory}}
       
+      - name : Deploy to gh-pages
+        uses : |
+                git config --global user.name ${{secrets.user_name}}
+                git config --global user.email ${{secrets.user_email}}
+                git remote set-url origin https://${{secrets.my_tokenPersonal}}@github.com/${{secrets.repository}}.git
+                npm run deploy
+
+        
 
 
 
