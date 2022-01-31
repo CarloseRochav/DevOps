@@ -40,11 +40,11 @@ jobs:
 
       - name: Run the tests 
         run: npm test
-        working-directori: ${{env.working-directory}}
+        working-directory: ${{env.working-directory}}
 
       - name : Build Page
         run : npm run build
-        working-directori: ${{env.working-directory}}
+        working-directory: ${{env.working-directory}}
       
       - name : Deploy to gh-pages
         uses : |
