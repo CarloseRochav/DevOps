@@ -16,12 +16,12 @@ jobs:
     runs-on:  ubuntu-latest # THe identatio is important    
 
     strategy:
-    matrix:
-      node-version: [16.x] #Nodejs enviroment version
+      matrix:
+        node-version: [16.x] #Nodejs enviroment version
 
-      #adding working-directory to .env   
-      env:
-        working-directory: ./capstone_project/hello-world
+    #adding working-directory to .env   
+    env:
+      working-directory: ./capstone_project/hello-world
     
     #Steps Represent a sequence of tasks that will be executed as part of the job
     steps:
