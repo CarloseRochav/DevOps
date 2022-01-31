@@ -49,11 +49,13 @@ jobs:
       - name : Build Page
         run : npm run build
         #working-directory: ${{env.working-directory}}
+
+      - name: deploy/build
+        run : npm run deploy
       
-      - name : Deploy to gh-pages         
-        run: 
+      - name : Deploy to gh-pages                 
         uses: JamesIves/github-pages-deploy-action@v4.2.2        
-        with: npm run deploy
+        with:
           branch: gh-pages # The branch the action should deploy to.
           folder: build # The folder the action should deploy.
         
