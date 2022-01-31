@@ -18,7 +18,7 @@ jobs:
     #adding working-directory
     defaults:
       run:
-        working-directory: ./captone_project/hello-world
+        working-directory: ./capstone_project/hello-world/
 
     strategy:
     matrix:
