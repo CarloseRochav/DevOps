@@ -50,8 +50,8 @@ jobs:
         run : npm run build
         #working-directory: ${{env.working-directory}}
 
-      - name: deploy/build
-        run : npm run deploy
+      #- name: deploy/build
+        #run : npm run deploy
       
       - name : Deploy to gh-pages                 
         uses: JamesIves/github-pages-deploy-action@v4.2.2        
