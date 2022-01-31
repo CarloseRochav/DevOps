@@ -22,6 +22,10 @@ jobs:
     #adding working-directory to .env   
     env:
       working-directory: ./capstone_project/hello-world    
+
+    defaults:
+      run:
+        working-directory: ./capstone_project/hello-world    
     
     #Steps Represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -36,18 +40,17 @@ jobs:
 
       - name: Install dependencies 
         run : npm install #This action install the packages
-        working-directory: ${{env.working-directory}} #Setting the directory for the run the script
+        #working-directory: ${{env.working-directory}} #Setting the directory for the run the script
 
       - name: Run the tests 
         run: npm test #This action test the app
-        working-directory: ${{env.working-directory}} #Setting the directory for the run the script
+        #working-directory: ${{env.working-directory}} #Setting the directory for the run the script
 
       - name : Build Page
         run : npm run build
-        working-directory: ${{env.working-directory}}
+        #working-directory: ${{env.working-directory}}
       
-      - name : Deploy to gh-pages 
-        working-directory: ${{env.working-directory}} #Setting the directory for the run the script
+      - name : Deploy to gh-pages         
         uses: JamesIves/github-pages-deploy-action@v4.2.2        
         with:
           branch: gh-pages # The branch the action should deploy to.
