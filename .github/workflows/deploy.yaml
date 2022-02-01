@@ -11,8 +11,8 @@ on:
   #A workflow run is made up of one or more jobs that can run sequentially or parallel
 jobs:
   # This workflow contains a single job called "deploy"
-  job1:
-      name: setup Node Enviroment
+  
+    setup_Node_ENV:   
       #The type of runner that the job will run
       runs-on:  ubuntu-latest # THe identatio is important    
 
@@ -47,8 +47,8 @@ jobs:
             run: npm test #This action test the app
             #working-directory: ${{env.working-directory}} #Setting the directory for the run the script
     
-  job2:
-      name: Deploying app
+  deploying:
+      
 
       runs-on:  ubuntu-latest # THe identatio is important    
 
