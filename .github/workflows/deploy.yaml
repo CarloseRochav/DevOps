@@ -29,37 +29,37 @@ jobs:
         working-directory: ./capstone_project/hello-world    
       
       #Steps Represent a sequence of tasks that will be executed as part of the job
-      steps:
-        #Checks-out your repository under $GITHUB_WORKSPACE, so your joc can access it 
-        - name: Checkout reposotory #Name for the action
-          uses: actions/checkout@v2 #Action be will to do --this action check if there 
+    steps:
+      #Checks-out your repository under $GITHUB_WORKSPACE, so your joc can access it 
+      - name: Checkout reposotory #Name for the action
+        uses: actions/checkout@v2 #Action be will to do --this action check if there 
 
-        - name: Set up Node.js ${{ matrix.node-version }} #Name for the action
-          uses: actions/setup-node@v2 #This action setup the enviroment 
-          with:
-            node-version: ${{matrix.node-version}} #Version for the action of enviroment
+      - name: Set up Node.js ${{ matrix.node-version }} #Name for the action
+        uses: actions/setup-node@v2 #This action setup the enviroment 
+        with:
+          node-version: ${{matrix.node-version}} #Version for the action of enviroment
 
-        - name: Install dependencies 
-          run : npm install #This action install the packages
-          #working-directory: ${{env.working-directory}} #Setting the directory for the run the script
+      - name: Install dependencies 
+        run : npm install #This action install the packages
+        #working-directory: ${{env.working-directory}} #Setting the directory for the run the script
 
-        - name: Run the tests 
-          run: npm test #This action test the app
-          #working-directory: ${{env.working-directory}} #Setting the directory for the run the script
+      - name: Run the tests 
+        run: npm test #This action test the app
+        #working-directory: ${{env.working-directory}} #Setting the directory for the run the script
 
-        - name : Build Page
-          run : npm run predeploy
-          #working-directory: ${{env.working-directory}}
+      - name : Build Page
+        run : npm run predeploy
+        #working-directory: ${{env.working-directory}}
 
-          #- name: deploy/build
-          #run : npm run deploy
-        
-        - name : Deploy to gh-pages                 
-          uses: peaceiris/actions-gh-pages@v3        #This is the best in the marketplace
-          with:
-            github_token: ${{secrets.MY_TOKENPERSONAL}}
-            publish_dir: ./build # The folder the action should deploy.        
+        #- name: deploy/build
+        #run : npm run deploy
       
+      - name : Deploy to gh-pages                 
+        uses: peaceiris/actions-gh-pages@v3        #This is the best in the marketplace
+        with:
+          github_token: ${{secrets.MY_TOKENPERSONAL}}
+          publish_dir: ./build # The folder the action should deploy.        
+    
   # deploying:      
 
   # runs-on:  ubuntu-latest # THe identatio is important    
