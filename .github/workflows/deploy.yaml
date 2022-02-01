@@ -48,7 +48,7 @@ jobs:
         #working-directory: ${{env.working-directory}} #Setting the directory for the run the script
 
       - name : Build Page
-        run : npm run predeploy        
+        run : npm run build
 
         #- name: deploy/build
         #run : npm run deploy
