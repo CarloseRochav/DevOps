@@ -47,17 +47,17 @@ jobs:
         #working-directory: ${{env.working-directory}} #Setting the directory for the run the script
 
       - name : Build Page
-        run : npm run build
+        run : npm run predeploy
         #working-directory: ${{env.working-directory}}
 
       #- name: deploy/build
         #run : npm run deploy
       
       - name : Deploy to gh-pages                 
-        uses: JamesIves/github-pages-deploy-action@v4.2.2        
+        uses: peaceiris/actions-gh-pages@v3        
         with:
-          branches: gh-pages # The branch the action should deploy to.
-          folder: build # The folder the action should deploy.
+          github-token: ${{secrets.MY_TOKENPERSONAL}}
+          folder: ./build # The folder the action should deploy.
         
         # run: |
         #         git config --global user.name ${{ secrets.user_name}}
