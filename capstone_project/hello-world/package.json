@@ -13,7 +13,7 @@
     "web-vitals": "^2.1.4"
   },
 
-  "homepage": " https://carloserochav.github.io/DevOps",
+  "homepage": "https://carloserochav.github.io/DevOps",
   "scripts": {
     "start": "react-scripts start",
     "predeploy": "npm run build",
