@@ -77,6 +77,7 @@ jobs:
     
   deploying:      
 
+    needs: setup_Node_ENV
     runs-on:  ubuntu-latest # THe identatio is important    
 
     strategy:
