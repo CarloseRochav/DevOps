@@ -47,8 +47,7 @@ jobs:
         run: npm test #This action test the app
         #working-directory: ${{env.working-directory}} #Setting the directory for the run the script
     
-  deploying:
-      
+  deploying:      
 
     runs-on:  ubuntu-latest # THe identatio is important    
 
@@ -57,21 +56,21 @@ jobs:
         node-version: [16.x] #Nodejs enviroment version
 
     defaults:
-    run:
-      working-directory: ./capstone_project/hello-world        
+      run:
+        working-directory: ./capstone_project/hello-world        
 
-      - name : Build Page
-        run : npm run predeploy
-        #working-directory: ${{env.working-directory}}
+    - name : Build Page
+      run : npm run predeploy
+      #working-directory: ${{env.working-directory}}
 
       #- name: deploy/build
         #run : npm run deploy
       
-      - name : Deploy to gh-pages                 
-        uses: peaceiris/actions-gh-pages@v3        #This is the best in the marketplace
-        with:
-          github_token: ${{secrets.MY_TOKENPERSONAL}}
-          publish_dir: ./build # The folder the action should deploy.        
+    - name : Deploy to gh-pages                 
+      uses: peaceiris/actions-gh-pages@v3        #This is the best in the marketplace
+      with:
+        github_token: ${{secrets.MY_TOKENPERSONAL}}
+        publish_dir: ./build # The folder the action should deploy.        
             
             
               
