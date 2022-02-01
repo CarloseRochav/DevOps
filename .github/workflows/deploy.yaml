@@ -92,7 +92,7 @@ jobs:
       #Steps Represent a sequence of tasks that will be executed as part of the job
     steps:   
 
-      -name: restore-cache-node
+      - name: restore-cache-node
         use: actions/cache@v2
         with:
         # npm cache files are stored in `~/.npm` on Linux/macOS
