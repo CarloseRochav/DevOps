@@ -68,9 +68,9 @@ jobs:
       matrix:
         node-version: [16.x] #Nodejs enviroment version
 
-    defaults:
-      run:
-        working-directory: ./capstone_project/hello-world  #directory target
+    # defaults:
+    #   run:
+    #     working-directory: ./capstone_project/hello-world  #directory target
 
       
       #Steps Represent a sequence of tasks that will be executed as part of the job
