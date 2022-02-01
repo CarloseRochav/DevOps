@@ -70,7 +70,7 @@ jobs:
 
       defaults:
         run:
-          working-directory: ./capstone_project/hello-world        
+          working-directory: ./capstone_project/hello-world  #directory target
 
       
       #Steps Represent a sequence of tasks that will be executed as part of the job
