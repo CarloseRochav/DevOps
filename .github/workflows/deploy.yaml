@@ -68,13 +68,19 @@ jobs:
       matrix:
         node-version: [16.x] #Nodejs enviroment version
 
-    # defaults:
-    #   run:
-    #     working-directory: ./capstone_project/hello-world  #directory target
+    defaults:
+      run:
+        working-directory: ./capstone_project/hello-world  #directory target    
 
       
       #Steps Represent a sequence of tasks that will be executed as part of the job
     steps:
+
+      - name: Set up Node.js ${{ matrix.node-version }} #Name for the action
+          uses: actions/setup-node@v2 #This action setup the enviroment 
+          with:
+            node-version: ${{matrix.node-version}} #Version for the action of enviroment
+
       - name : Build Page
         run : npm run predeploy
           #working-directory: ${{env.working-directory}}
