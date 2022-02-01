@@ -62,42 +62,42 @@ jobs:
     
   deploying:      
 
-  runs-on:  ubuntu-latest # THe identatio is important    
+    runs-on:  ubuntu-latest # THe identatio is important    
 
-  strategy:
-    matrix:
-      node-version: [16.x] #Nodejs enviroment version
+    strategy:
+      matrix:
+        node-version: [16.x] #Nodejs enviroment version
 
-    defaults:
-      run:
-        working-directory: ./capstone_project/hello-world        
+      defaults:
+        run:
+          working-directory: ./capstone_project/hello-world        
 
-    
-    #Steps Represent a sequence of tasks that will be executed as part of the job
-    steps:
-
-      - name : Build Page
-        run : npm run predeploy
-        #working-directory: ${{env.working-directory}}
-
-        #- name: deploy/build
-          #run : npm run deploy
       
-      - name : Deploy to gh-pages                 
-        uses: peaceiris/actions-gh-pages@v3        #This is the best in the marketplace
-        with:
-          github_token: ${{secrets.MY_TOKENPERSONAL}}
-          publish_dir: ./build # The folder the action should deploy.        
-            
-            
+      #Steps Represent a sequence of tasks that will be executed as part of the job
+      steps:
+
+        - name : Build Page
+          run : npm run predeploy
+          #working-directory: ${{env.working-directory}}
+
+          #- name: deploy/build
+            #run : npm run deploy
+        
+        - name : Deploy to gh-pages                 
+          uses: peaceiris/actions-gh-pages@v3        #This is the best in the marketplace
+          with:
+            github_token: ${{secrets.MY_TOKENPERSONAL}}
+            publish_dir: ./build # The folder the action should deploy.        
+              
+              
+                
+
+
               
 
 
-            
 
-
-
-      
+        
 
 
 
