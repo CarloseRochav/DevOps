@@ -77,9 +77,9 @@ jobs:
     steps:
 
       - name: Set up Node.js ${{ matrix.node-version }} #Name for the action
-          uses: actions/setup-node@v2 #This action setup the enviroment 
-          with:
-            node-version: ${{matrix.node-version}} #Version for the action of enviroment
+        uses: actions/setup-node@v2 #This action setup the enviroment 
+        with:
+          node-version: ${{matrix.node-version}} #Version for the action of enviroment
 
       - name : Build Page
         run : npm run predeploy
