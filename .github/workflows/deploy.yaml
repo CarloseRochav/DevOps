@@ -59,34 +59,23 @@ jobs:
           github_token: ${{secrets.MY_TOKENPERSONAL}}
           publish_dir: ./build # The folder the action should deploy.        
     
-  # build-image-docker:      
+  build-image-docker:      
 
-  #   needs: setup_Node_ENV
-  #   runs-on:  ubuntu-latest # THe identatio is important    
+    needs: setup_Node_ENV
+    runs-on:  ubuntu-latest # THe identatio is important     
 
-  #   strategy:
-  #     matrix:
-  #       node-version: [16.x] #Nodejs enviroment version
-
-  #   defaults:
-  #     run:
-  #       working-directory: ./capstone_project/hello-world  #directory target    
+    defaults:
+      run:
+        working-directory: ./capstone_project/hello-world  #directory target    
 
       
-  #     #Steps Represent a sequence of tasks that will be executed as part of the job
-  #   steps:   
+      #Steps Represent a sequence of tasks that will be executed as part of the job
+    steps:   
 
-  #     - name : Build Page
-  #       run : npm run predeploy
-  #         #working-directory: ${{env.working-directory}}          
-        
-  #     - name : Deploy to gh-pages                 
-  #       uses: peaceiris/actions-gh-pages@v3        #This is the best in the marketplace
-  #       with:
-  #         github_token: ${{secrets.MY_TOKENPERSONAL}}
-  #         publish_dir: ./build # The folder the action should deploy.        
-              
-              
+      - name : Build Page
+        uses: actions/checkout@v2 #Action be will to do --this action check if there 
+        run : docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+  
                 
 
 
