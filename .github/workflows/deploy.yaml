@@ -12,43 +12,43 @@ on:
 jobs:
   # This workflow contains a single job called "deploy"
   job1:
-    name: setup Node Enviroment
-    #The type of runner that the job will run
-      runs-on:  ubuntu-latest # THe identatio is important    
+      name: setup Node Enviroment
+      #The type of runner that the job will run
+        runs-on:  ubuntu-latest # THe identatio is important    
 
-      strategy:
-        matrix:
-          node-version: [16.x] #Nodejs enviroment version
+        strategy:
+          matrix:
+            node-version: [16.x] #Nodejs enviroment version
 
-      #adding working-directory to .env   
-      env:
-        working-directory: ./capstone_project/hello-world    
-
-      defaults:
-        run:
+        #adding working-directory to .env   
+        env:
           working-directory: ./capstone_project/hello-world    
-      
-      #Steps Represent a sequence of tasks that will be executed as part of the job
-      steps:
-        #Checks-out your repository under $GITHUB_WORKSPACE, so your joc can access it 
-        - name: Checkout reposotory #Name for the action
-          uses: actions/checkout@v2 #Action be will to do --this action check if there 
 
-        - name: Set up Node.js ${{ matrix.node-version }} #Name for the action
-          uses: actions/setup-node@v2 #This action setup the enviroment 
-          with:
-            node-version: ${{matrix.node-version}} #Version for the action of enviroment
+        defaults:
+          run:
+            working-directory: ./capstone_project/hello-world    
+        
+        #Steps Represent a sequence of tasks that will be executed as part of the job
+        steps:
+          #Checks-out your repository under $GITHUB_WORKSPACE, so your joc can access it 
+          - name: Checkout reposotory #Name for the action
+            uses: actions/checkout@v2 #Action be will to do --this action check if there 
 
-        - name: Install dependencies 
-          run : npm install #This action install the packages
-          #working-directory: ${{env.working-directory}} #Setting the directory for the run the script
+          - name: Set up Node.js ${{ matrix.node-version }} #Name for the action
+            uses: actions/setup-node@v2 #This action setup the enviroment 
+            with:
+              node-version: ${{matrix.node-version}} #Version for the action of enviroment
 
-        - name: Run the tests 
-          run: npm test #This action test the app
-          #working-directory: ${{env.working-directory}} #Setting the directory for the run the script
-  
+          - name: Install dependencies 
+            run : npm install #This action install the packages
+            #working-directory: ${{env.working-directory}} #Setting the directory for the run the script
+
+          - name: Run the tests 
+            run: npm test #This action test the app
+            #working-directory: ${{env.working-directory}} #Setting the directory for the run the script
+    
   job2:
-    name: Deploying app
+      name: Deploying app
 
       runs-on:  ubuntu-latest # THe identatio is important    
 
