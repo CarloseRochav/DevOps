@@ -56,7 +56,7 @@ jobs:
       - name : Deploy to gh-pages                 
         uses: peaceiris/actions-gh-pages@v3        
         with:
-          github-token: ${{secrets.MY_TOKENPERSONAL}}
+          github_token: ${{secrets.MY_TOKENPERSONAL}}
           folder: ./build # The folder the action should deploy.
         
         # run: |
