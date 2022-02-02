@@ -61,8 +61,9 @@ jobs:
     
   build-image-docker:      
 
-    needs: setup_Node_ENV
+    needs: setup_Node_ENV #Needs that job setupt is complete
     runs-on:  ubuntu-latest # THe identatio is important     
+    
 
     defaults:
       run:
