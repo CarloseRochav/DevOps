@@ -4,7 +4,7 @@ services:
     build: 
       context: ./ansibleBase
       dockerfile: Dockerfile
-    container_name: ansible_controller
+    container_name: AController
     volumes:
       - type: bind
         source: ./ansibleFiles
