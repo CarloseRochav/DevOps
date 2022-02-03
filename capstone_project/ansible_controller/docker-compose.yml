@@ -8,12 +8,13 @@ services:
     volumes:
       - type: bind
         source: ./ansibleFiles
-        target: /home/ansible_controller/ansibleFiles
+        target: /home/aController/ansibleFiles
 
 
 networks:
   default:
-    driver: overlay
-    name: hello-world_default
+    #driver: overlay
     external: true
+    name: hello-world_default
+    
     
