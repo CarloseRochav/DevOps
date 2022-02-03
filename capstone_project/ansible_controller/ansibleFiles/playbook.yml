@@ -3,15 +3,15 @@
   become: yes
 
   tasks:
-    - name: Ping Check using ping module
+    - name: Ping 
       ping:
 
-    - name: Copy file with owner and permissions
-      ansible.builtin.copy:
+    - name: Copy the file
+      ansible.builtin.copy: #Module
         src: /usr/share/nginx/html/index.html  
         dest: /usr/share/nginx/html/index.html.bak
         remote_src: yes
-        owner: root
+        owner: root #Exec Statements as root user
         group: root
         mode: '0644'
 
